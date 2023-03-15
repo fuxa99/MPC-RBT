@@ -1,0 +1,18 @@
+names:
+  0: 400v socket
+  1: 400v socket down
+  2: house plug
+  3: house plug covered
+  4: house switch
+  5: house switch double
+  6: safety switch
+nc: 7
+roboflow:
+  license: CC BY 4.0
+  project: erc_rbt
+  url: https://universe.roboflow.com/rbt/erc_rbt/dataset/2
+  version: 2
+  workspace: rbt
+test: /content/MPC-RBT/dataset/test/images
+train: /content/MPC-RBT/dataset/train/images
+val: /content/MPC-RBT/dataset/valid/images

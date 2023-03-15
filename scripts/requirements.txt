@@ -1,0 +1,7 @@
+numpy
+opencv-python
+argparse
+torch
+torchvision
+torchaudio
+roboflow
