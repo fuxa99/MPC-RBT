@@ -34,15 +34,14 @@ def plot_boxes(results,image):
 parser = argparse.ArgumentParser()
 parser.add_argument('-c',"--confidence",required=False,default=0.0,type=float,help='Confidence threshold. Valid interval <0;1>.')
 parser.add_argument('-i',"--input_dir",required=False,default='input',type=str,help='Path to input directory containing images to be processed.')
-parser.add_argument('-m',"--model",required=False,default='model_path',type=str,help='Path to trained model.')
+parser.add_argument('-m',"--model",required=True,type=str,help='Path to trained model.')
 parser.add_argument('-f',"--file_type",required=False,default='png',type=str,help='Image file type, for example tif,png,bmp...')
 parser.add_argument('-o',"--output_dir",required=False,default='results',type=str,help='Path to output directory.')
 args = parser.parse_args()
 
 try:
-    #model = torch.hub.load('ultralytics/yolov5', 'custom', path='yolo/runs/train/exp54/weights/best.pt')  # custom model
-    """if not os.path.isfile(args.model):
-        raise Exception(f'Trained model "{args.model} does not exist. Check the path and try again."')"""
+    if not os.path.isfile(args.model):
+        raise Exception(f'Trained model "{args.model} does not exist. Check the path and try again."')
     if not os.path.isdir(args.output_dir):
         print(f'Creating "{args.output_dir}" directory.')
         os.makedirs(args.output_dir)
@@ -51,7 +50,7 @@ try:
     if images is None:
         raise Exception(f'Invalid input directory.')
 
-    model = torch.hub.load('ultralytics/yolov5','yolov5s')
+    model = torch.hub.load('ultralytics/yolov5', 'custom', path=args.model)  # custom model
 
     if args.confidence < 0 or args.confidence > 1:
         print('Invalid confidence threshold, skipping.')
