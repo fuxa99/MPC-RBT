@@ -6,6 +6,7 @@ names:
   4: house switch
   5: house switch double
   6: safety switch
+  7: toggle switch
 nc: 7
 roboflow:
   license: CC BY 4.0
