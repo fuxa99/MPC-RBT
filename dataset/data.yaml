@@ -7,7 +7,7 @@ names:
   5: house switch double
   6: safety switch
   7: toggle switch
-nc: 7
+nc: 8
 roboflow:
   license: CC BY 4.0
   project: erc_rbt
